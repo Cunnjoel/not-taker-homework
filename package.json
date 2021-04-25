@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "domino": "^2.1.6",
     "express": "^4.16.4"
   }
 }
