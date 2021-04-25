@@ -45,11 +45,12 @@ fs.readFile("Main/db/db.json", "utf8", (err, data) => {
     return console.log("New note added: " + newNote.title);
   });
 
-  //retrieve note
+  //retrieve new note from db
   app.get("/api/notes/:id", function (req, res) {
     res.json(notes[req.params.id]);
   })
 
+  //delete note from db
   app.delete("/api/notes/:id", function(req, res) {
     notes.splice(req.params.id, 1);
     updateNote();
