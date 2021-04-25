@@ -49,7 +49,15 @@ fs.readFile("Main/db/db.json", "utf8", (err, data) => {
   app.get("/api/notes/:id", function (req, res) {
     res.json(notes[req.params.id]);
   })
+
+  app.delete("/api/notes/:id", function(req, res) {
+    notes.splice(req.params.id, 1);
+    updateNote();
+    console.log("Note deleted " + req.params.id);
+  });
+
 });
+
 
 function updateNote() {
   fs.writeFile("Main/db/db.json", JSON.stringify(notes, '/t'), err => {
